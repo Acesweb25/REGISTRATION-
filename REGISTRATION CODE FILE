@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ACES Official Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f6ff;
+      color: #003366;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.2rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background: #003366;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>ACES Official Registration</h2>
+
+  <form id="acesForm" action="https://formspree.io/f/mwpqqkvr" method="POST">
+    <label>Full Name
+      <input type="text" name="name" placeholder="e.g. Micah Muchoki" required>
+    </label>
+
+    <label>Registration Number
+      <input type="text" name="regno" placeholder="e.g. ECE/1234/2023" required>
+    </label>
+
+    <label>School Email
+      <input type="email" name="email" placeholder="e.g. micah@students.uonbi.ac.ke" required>
+    </label>
+
+    <label>Year of Study
+      <select name="year" required>
+        <option value="">Select Year</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+        <option>5th Year</option>
+        <option>Masters/Postgrad</option>
+      </select>
+    </label>
+
+    <label>Phone Number
+      <input type="tel" name="phone" placeholder="e.g. 0712 345678" required>
+    </label>
+
+    <label>Why do you wish to join ACES? (Optional)
+      <textarea name="motivation" placeholder="Share your motivation..." rows="4"></textarea>
+    </label>
+
+    <label>What do you expect from the association? (Optional)
+      <textarea name="expectations" placeholder="Tell us what you're looking forward to..." rows="4"></textarea>
+    </label>
+
+    <input type="hidden" name="_redirect" value="https://sites.google.com/view/acesuon/thank-you" />
+
+    <button type="submit">Submit Registration</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('acesForm');
+    form.addEventListener('submit', function() {
+      setTimeout(() => alert('✅ Your registration has been submitted!'), 300);
+    });
+  </script>
+
+</body>
+</html>
