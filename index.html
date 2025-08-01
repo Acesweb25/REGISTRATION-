@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ACES Official Registration</title>
+  <title>ACES Registration</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <style>
     body {
@@ -51,7 +51,7 @@
 
   <h2>ACES Official Registration</h2>
 
-  <form id="acesForm" action="https://formspree.io/f/mwpqqkvr" method="POST">
+  <form id="acesForm">
     <label>Full Name
       <input type="text" name="name" placeholder="e.g. Micah Muchoki" required>
     </label>
@@ -72,7 +72,7 @@
         <option>3rd Year</option>
         <option>4th Year</option>
         <option>5th Year</option>
-        <option>Masters/Postgrad</option>
+        <option>Postgraduate</option>
       </select>
     </label>
 
@@ -88,15 +88,35 @@
       <textarea name="expectations" placeholder="Tell us what you're looking forward to..." rows="4"></textarea>
     </label>
 
-    <input type="hidden" name="_redirect" value="https://sites.google.com/view/acesuon/thank-you" />
-
     <button type="submit">Submit Registration</button>
   </form>
 
   <script>
     const form = document.getElementById('acesForm');
-    form.addEventListener('submit', function() {
-      setTimeout(() => alert('✅ Your registration has been submitted!'), 300);
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://formspree.io/f/mwpqqkvr', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          alert('Your registration has been submitted!');
+          form.reset();
+        } else {
+          alert('There was a problem submitting your registration.');
+        }
+      } catch (error) {
+        alert('Error: Unable to submit form. Please try again later.');
+      }
     });
   </script>
 
