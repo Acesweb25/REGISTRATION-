@@ -50,7 +50,8 @@
       color: green;
       font-weight: bold;
       text-align: center;
-      margin-top: 1rem;
+      margin-top: 2rem;
+      font-size: 1.1rem;
     }
   </style>
 </head>
@@ -98,7 +99,7 @@
     <button type="submit">Submit Registration</button>
   </form>
 
-  <p id="successMsg">✅ Your registration has been submitted!</p>
+  <p id="successMsg">✅ Your registration has been submitted! Redirecting to ACES homepage...</p>
 
   <script>
     const form = document.getElementById('acesForm');
@@ -106,6 +107,7 @@
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
+
       const formData = new FormData(form);
 
       try {
@@ -116,8 +118,13 @@
         });
 
         if (response.ok) {
+          form.style.display = 'none';
           successMsg.style.display = 'block';
-          form.reset();
+
+          setTimeout(() => {
+            window.location.href = 'https://sites.google.com/view/acesuon/home';
+          }, 4000);
+
         } else {
           alert('There was a problem submitting your registration.');
         }
