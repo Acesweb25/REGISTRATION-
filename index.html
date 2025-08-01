@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ACES Registration</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <style>
@@ -9,31 +10,46 @@
       font-family: 'Montserrat', sans-serif;
       background: #f0f6ff;
       color: #003366;
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrapper {
       max-width: 600px;
       margin: 2rem auto;
       padding: 2rem;
+      background: #fff;
       border-radius: 10px;
       border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
     h2 {
       text-align: center;
       margin-bottom: 1.5rem;
+      font-size: 1.6rem;
     }
+
     label {
       display: block;
       margin-top: 1rem;
+      font-size: 0.95rem;
     }
+
     input, select, textarea {
       width: 100%;
       padding: 0.6rem;
-      margin-top: 0.2rem;
+      margin-top: 0.3rem;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
     }
+
     textarea {
       resize: vertical;
     }
+
     button {
       background: #003366;
       color: white;
@@ -45,6 +61,7 @@
       width: 100%;
       font-size: 1rem;
     }
+
     #successMsg {
       display: none;
       text-align: center;
@@ -53,53 +70,76 @@
       color: green;
       font-size: 1.2rem;
     }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      input, select, textarea {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h2>ACES Official Registration</h2>
+  <div class="wrapper">
+    <h2>ACES Official Registration</h2>
 
-  <form id="acesForm">
-    <label>Full Name
-      <input type="text" name="name" placeholder="e.g. Your Name " required>
-    </label>
+    <form id="acesForm">
+      <label>Full Name
+        <input type="text" name="name" placeholder="e.g. Your Name" required>
+      </label>
 
-    <label>Registration Number
-      <input type="text" name="regno" placeholder="e.g. FCC3/1234/2025" required>
-    </label>
+      <label>Registration Number
+        <input type="text" name="regno" placeholder="e.g. FCC3/1234/2025" required>
+      </label>
 
-    <label>School Email
-      <input type="email" name="email" placeholder="e.g. Email@students.uonbi.ac.ke" required>
-    </label>
+      <label>School Email
+        <input type="email" name="email" placeholder="e.g. email@students.uonbi.ac.ke" required>
+      </label>
 
-    <label>Year of Study
-      <select name="year" required>
-        <option value="">Select Year</option>
-        <option>1st Year</option>
-        <option>2nd Year</option>
-        <option>3rd Year</option>
-        <option>4th Year</option>
-        <option>5th Year</option>
-        <option>Postgraduate</option>
-      </select>
-    </label>
+      <label>Year of Study
+        <select name="year" required>
+          <option value="">Select Year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>4th Year</option>
+          <option>5th Year</option>
+          <option>Postgraduate</option>
+        </select>
+      </label>
 
-    <label>Phone Number
-      <input type="tel" name="phone" placeholder="e.g. 0712 345678" required>
-    </label>
+      <label>Phone Number
+        <input type="tel" name="phone" placeholder="e.g. 0712 345678" required>
+      </label>
 
-    <label>Why do you wish to join ACES? (Optional)
-      <textarea name="motivation" placeholder="Share your motivation..." rows="4"></textarea>
-    </label>
+      <label>Why do you wish to join ACES? (Optional)
+        <textarea name="motivation" placeholder="Share your motivation..." rows="4"></textarea>
+      </label>
 
-    <label>What do you expect from the association? (Optional)
-      <textarea name="expectations" placeholder="Tell us what you're looking forward to..." rows="4"></textarea>
-    </label>
+      <label>What do you expect from the association? (Optional)
+        <textarea name="expectations" placeholder="Tell us what you're looking forward to..." rows="4"></textarea>
+      </label>
 
-    <button type="submit">Submit Registration</button>
-  </form>
+      <button type="submit">Submit Registration</button>
+    </form>
 
-  <p id="successMsg">✅ YOUR REGISTRATION HAS BEEN SUBMITTED! Redirecting to ACES homepage...</p>
+    <p id="successMsg">✅ YOUR REGISTRATION HAS BEEN SUBMITTED! Redirecting to ACES homepage...</p>
+  </div>
 
   <script>
     const form = document.getElementById('acesForm');
